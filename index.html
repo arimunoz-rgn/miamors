@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rincón de Amor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="portada" class="pantalla">
+        <header class="header">
+            <h1>Bienvenido a Nuestro Rincón de Amor</h1>
+            <button onclick="abrirMenu()">Abrir</button>
+        </header>
+    </div>
+
+    <div id="menu" class="pantalla oculto">
+        <header class="header">
+            <h1>Menú de Amor</h1>
+        </header>
+        <ul>
+            <li>Lo que siento por ti <button onclick="abrirPoema()">Abrir</button></li>
+            <li>¿Por qué me fijé en ti? <button onclick="abrirRazon()">Abrir</button></li>
+            <li>Entra <button onclick="abrirMensaje()">Entra</button></li>
+        </ul>
+    </div>
+
+    <div id="poema" class="pantalla oculto">
+        <h2>Lo que siento por ti</h2>
+        <p>Mi amor por ti es infinito, sincero y mágico.</p>
+        <button onclick="volverMenu()">Regresar</button>
+        <button onclick="abrirTeAmo()">Te Amo</button>
+    </div>
+
+    <div id="teamo" class="pantalla oculto">
+        <h2>Yo también, mi amor</h2>
+        <img src="imagen-amor.jpg" alt="Imagen de amor">
+        <button onclick="volverMenu()">Volver al menú</button>
+    </div>
+
+    <div id="razon" class="pantalla oculto">
+        <h2>¿Por qué me fijé en ti?</h2>
+        <p>Por tus ojos, por que me haces reír, por que me gusta platicar contigo, por tu sonrisa, por cómo te caías en tus partidos.</p>
+        <img src="cristiano-cayendo.jpg" alt="Cristiano Ronaldo cayéndose">
+        <button onclick="volverMenu()">Volver</button>
+        <button onclick="abrirBesos()">Besos</button>
+    </div>
+
+    <div id="besos" class="pantalla oculto">
+        <h2>Besos</h2>
+        <p>
+            Besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos,<br>
+            Besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos, besos,<br>
+            Te amo
+        </p>
+        <button onclick="volverMenu()">Volver al menú</button>
+    </div>
+
+    <div id="mensaje" class="pantalla oculto">
+        <h2>Para ti</h2>
+        <p>Eres lo más bonito y mágico que le ha pasado a mi vida. Si un día me necesitas, aquí estaré. Espero sorprenderte, y este es un regalo de mi para ti. Ojalá te haga feliz porque me gusta y me encanta cuando sonríes y eres feliz. Mantengo tu sonrisa guardada en mi corazón. Te amo.</p>
+        <button onclick="terminar()">Te Amo</button>
+    </div>
+
+    <script>
+        function abrirMenu() {
+            cambiarPantalla('portada', 'menu');
+        }
+
+        function abrirPoema() {
+            cambiarPantalla('menu', 'poema');
+        }
+
+        function abrirTeAmo() {
+            cambiarPantalla('poema', 'teamo');
+        }
+
+        function abrirRazon() {
+            cambiarPantalla('menu', 'razon');
+        }
+
+        function abrirBesos() {
+            cambiarPantalla('razon', 'besos');
+        }
+
+        function abrirMensaje() {
+            cambiarPantalla('menu', 'mensaje');
+        }
+
+        function volverMenu() {
+            document.querySelectorAll('.pantalla').forEach(p => p.classList.add('oculto'));
+            document.getElementById('menu').classList.remove('oculto');
+        }
+
+        function terminar() {
+            alert('Gracias por visitar este espacio, mi amor. Te amo mucho.');
+        }
+
+        function cambiarPantalla(actual, siguiente) {
+            document.getElementById(actual).classList.add('oculto');
+            document.getElementById(siguiente).classList.remove('oculto');
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf0f3;
+            color: #333;
+            text-align: center;
+        }
+
+        .pantalla {
+            display: none;
+        }
+
+        .pantalla:not(.oculto) {
+            display: block;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #ffc0cb;
+            color: #fff;
+            padding: 20px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff69b4;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+    </style>
+</body>
+</html>
